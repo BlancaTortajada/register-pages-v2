@@ -1,0 +1,94 @@
+- @page_title = "Home"
+- @page_description = ""
+
+.breadcrumbs{"data-module" => "track-click"}
+  %ol
+    %li
+      = link_to "Service Toolkit", "https://www.gov.uk/service-toolkit", target: :blank
+    %li
+      = link_to "Registers", root_path
+    %li
+      = link_to "Prisons", "#main"
+
+.container#main
+  .grid-row
+    .column-two-thirds
+      %h1 Prisons
+      %dl
+        %dt Updated on:
+        %dd 31/01/16
+        %dt Owner:
+        %dd Peter Smith
+
+      %p This list includes the prisons part of the Prisons Estate in England and Wales, including public and contracted prisons, NOMS Immigration Removal Centres operated on behalf of the Home Office and Secure Training Centre.
+
+      %details{:role => "group"}
+        %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
+          %span.summary Download this data
+        #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
+          %ul
+            %li= link_to "CSV", "#"
+            %li= link_to "TSV", "#"
+            %li= link_to "TTL", "#"
+            %li= link_to "JSON", "#"
+            %li= link_to "YAML", "#"
+            %li= link_to "Spreadsheet", "#"
+
+      %details{:role => "group"}
+        %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
+          %span.summary Use this list to build your service
+        #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
+          %p Registers are lists of information, each register is the most reliable list of its kind. Using registers to build your service means you and your service users will only ever work with one reliable and current source of data.
+          %p
+            = link_to "Using registers", "https://registers.cloudapps.digital/using-registers"
+            %br
+            = link_to "Technical documentation", "https://registers-docs.cloudapps.digital/#technical-user-documentation-for-registers"
+
+    .column-one-third
+      %div{class: "govuk-organisation-logo"}
+        %span.logo-container.logo-with-crest.crest-single-identity
+          %span
+            Ministry
+            %br
+            of Justice
+
+  .search-wrapper
+    .grid-row
+      .column-one-half
+        = link_to "Combine with another list", combine_path
+      .column-one-half
+        = form_tag prisons_path, method: 'get', id: "search", class: "site-search" do
+          .content
+            = text_field_tag :search, params[:search], title: "Search", type: "search", id: "site-search-text", class: "js-search-focus", placeholder: "Search prisons"
+            = submit_tag "Search", class: 'submit'
+
+  .grid-row
+    .column-one-whole
+      - if @prisons.present?
+        .table-wrapper
+          %table
+            %col{width: "25%"}
+            %col{width: "10%"}
+            %col{width: "12.5%"}
+            %col{width: "12.5%"}
+            %col{width: "20%"}
+            %col{width: "20%"}
+            %thead
+              %tr
+                %th= sort_link "name", "Prison name"
+                %th= sort_link "code", "Code"
+                %th= sort_link "opened", "Opened"
+                %th= sort_link "closed", "Closed"
+                %th
+                %th
+            %tbody
+              - @prisons.each do |prison|
+                %tr
+                  %td= prison.name
+                  %td= prison.code
+                  %td= prison.opened.present? ? prison.opened.strftime("%d/%m/%Y") : "<span class='unknown'>No data found</span>".html_safe
+                  %td= prison.closed.present? ? prison.closed.strftime("%d/%m/%Y") : "<span class='unknown'>No data found</span>".html_safe
+                  %td
+                  %td
+      - else
+        %h4 Sorry, no prisons found for #{params[:search]}
