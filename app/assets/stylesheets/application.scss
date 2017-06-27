@@ -126,6 +126,10 @@ table {
   @include breadcrumbs;
 }
 
+.register-name {
+  margin-bottom: 25px;
+}
+
 .about {
   margin-top: 25px;
 }
@@ -134,13 +138,14 @@ table {
   width: 300px;
   float: none;
   display: inline-block;
+  margin-right: 30px;
   .form-control {
     width: 100%;
   }
 }
 
 .search-results h2 {
-  margin-top: 10px;
+  margin: 10px 0 15px 0;
 }
 
 .site-search {

@@ -18,20 +18,21 @@
 
   .grid-row
     .column-two-thirds
-      %h1.heading-large Prison register
+      %h1.heading-xlarge.register-name Prison register
       %dl.metadata
         %dt Updated on:
         %dd 31/01/16
         %dt Owner:
         %dd Peter Smith
 
-      %p This list includes the prisons part of the Prisons Estate in England and Wales, including public and contracted prisons, NOMS Immigration Removal Centres operated on behalf of the Home Office and Secure Training Centre.
+      %p The Prison Estate in England and Wales, including public and contracted prisons, NOMS Immigration Removal Centres operated on behalf of the Home Office and Secure Training Centre
 
       %details{:role => "group"}
         %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
           %span.summary Use this list to build your service
         #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
           %p This list is a register. Using registers to build your service means you and your service users will only ever work with one reliable and current source of data.
+          
           %p
             = link_to "Using registers", "https://registers.cloudapps.digital/using-registers"
             %br
@@ -41,7 +42,10 @@
         %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
           %span.summary What are registers?
         #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
-          %p Registers are lists of information, each register is the most reliable list of its kind.
+          %p Registers are lists of information, each register is the most reliable list of its kind. 
+
+          %p Some registers can be combined with other registers to provide more information. This register can be combined with the <a href="">address register</a> and the <a href="">country register</a>.
+
           %p
             = link_to "Using registers", "https://registers.cloudapps.digital/using-registers"
             %br
@@ -58,30 +62,31 @@
       %h2.heading-small Learn more
       %ul
         %li
-          = link_to "Update history", "#main"
+          = link_to "Register history", "#main"
         %li
           = link_to "Technical documentation", "#main"
         %li
+          = link_to "Create a register", "#main"
+        %li
           = link_to "Contact the team", "#main"
-
 
   .search-wrapper
     .grid-row
       .column-full
-        .form-group
-          %label Search for a prison
-          = form_tag prisons_path, method: 'get', id: "search", class: "site-search" do
-            .content
-              = text_field_tag :search, params[:search], title: "Search", type: "search", id: "site-search-text", class: "js-search-focus"
         .form-group
           %label.form-label{:for => "select-box"} Filter by
           %select#select-box.form-control{:name => "select-box"}
             %option Currently active
             %option Expired
             %option All
+        .form-group
+          %label Search for a prison
+          = form_tag prisons_path, method: 'get', id: "search", class: "site-search" do
+            .content
+              = text_field_tag :search, params[:search], title: "Search", type: "search", id: "site-search-text", class: "js-search-focus"
     .grid-row
       .column-full.search-results
-        %h2.heading-medium 151 prisons
+        %h2.heading-large 151 prisons
         %details{:role => "group"}
           %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
             %span.summary Download this data
