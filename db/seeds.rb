@@ -4,7 +4,7 @@ Prison.create(
   name: "HMP Wolds",
   code: "WO",
   organisation: nil,
-  address: "Everthorpe, Brough",
+  address: nil,
   opened: nil,
   closed: Date.new(2014,04,01)
 )
@@ -14,7 +14,7 @@ Prison.create(
   name: "HMP Wellingborough",
   code: "WB",
   organisation: nil,
-  address: "Millers Park, Wellingborough",
+  address: "10023681392",
   opened: nil,
   closed: Date.new(2012,12,21)
 )
@@ -24,7 +24,7 @@ Prison.create(
   name: "HMP The Weare",
   code: "WA",
   organisation: nil,
-  address: "Portland Harbour, Dorset",
+  address: "10070569459",
   opened: nil,
   closed: Date.new(2006,01,01)
 )
@@ -33,8 +33,8 @@ puts "Created HMP The Weare"
 Prison.create(
   name: "HMP Oakwood",
   code: "OW",
-  organisation: "Peterborough Prison Management Limited",
-  address: "Oaks Dr, Featherstone",
+  organisation: "company:00390328",
+  address: "10090090220",
   opened: nil,
   closed: nil
 )
@@ -43,8 +43,8 @@ puts "Created HMP Oakwood"
 Prison.create(
   name: "HMP Northumberland",
   code: "NL",
-  organisation: "Sodexo Limited",
-  address: "Morpeth, Northumberland",
+  organisation: "company:00842846",
+  address: "10024651947",
   opened: nil,
   closed: nil
 )
@@ -54,7 +54,7 @@ Prison.create(
   name: "HMP Acklington",
   code: "AK",
   organisation: nil,
-  address: "Morpeth, Northumberland",
+  address: "2920005642",
   opened: nil,
   closed: Date.new(2011, 10, 31)
 )
@@ -64,7 +64,7 @@ Prison.create(
   name: "HMP Albany",
   code: "AK",
   organisation: nil,
-  address: "Albany House, Newport",
+  address: "10003332444",
   opened: nil,
   closed: Date.new(2009, 04, 01)
 )
@@ -83,8 +83,8 @@ puts "Created HMP Ashwell"
 Prison.create(
   name: "HMP/YOI Thameside",
   code: "TS",
-  organisation: "BWP Project Services Limited",
-  address: "London",
+  organisation: "company:07279250",
+  address: "100030715098",
   opened: nil,
   closed: nil
 )
@@ -93,8 +93,8 @@ puts "Created HMP/YOI Thameside"
 Prison.create(
   name: "HMP Rye Hill",
   code: "RH",
-  organisation: "G4S",
-  address: "Willoughby, Rugby",
+  organisation: "company:03682678",
+  address: "28042679",
   opened: nil,
   closed: nil
 )
@@ -103,8 +103,8 @@ puts "Created HMP Rye Hill"
 Prison.create(
   name: "HMP/YOI Parc (YP)",
   code: "PR",
-  organisation: "Bridgend Custodial Services Limited",
-  address: "Bridgend, South Wales",
+  organisation: "company:03045222",
+  address: "200002656535",
   opened: nil,
   closed: nil
 )

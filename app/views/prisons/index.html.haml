@@ -7,14 +7,19 @@
       = link_to "Service Toolkit", "https://www.gov.uk/service-toolkit", target: :blank
     %li
       = link_to "Registers", root_path
-    %li
-      = link_to "Prisons", "#main"
+    %li Prison register
 
 .container#main
   .grid-row
     .column-two-thirds
-      %h1 Prisons
-      %dl
+      .panel.panel-border-wide.phase
+        %span.phase-tag In progress
+        %p This data is at an experimental stage and it’s not ready for use yet. <a href="http://google.com">Contact the team</a> if you want to give us feedback.
+
+  .grid-row
+    .column-two-thirds
+      %h1.heading-large Prison register
+      %dl.metadata
         %dt Updated on:
         %dd 31/01/16
         %dt Owner:
@@ -24,71 +29,121 @@
 
       %details{:role => "group"}
         %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
-          %span.summary Download this data
-        #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
-          %ul
-            %li= link_to "CSV", "#"
-            %li= link_to "TSV", "#"
-            %li= link_to "TTL", "#"
-            %li= link_to "JSON", "#"
-            %li= link_to "YAML", "#"
-            %li= link_to "Spreadsheet", "#"
-
-      %details{:role => "group"}
-        %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
           %span.summary Use this list to build your service
         #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
-          %p Registers are lists of information, each register is the most reliable list of its kind. Using registers to build your service means you and your service users will only ever work with one reliable and current source of data.
+          %p This list is a register. Using registers to build your service means you and your service users will only ever work with one reliable and current source of data.
           %p
             = link_to "Using registers", "https://registers.cloudapps.digital/using-registers"
             %br
             = link_to "Technical documentation", "https://registers-docs.cloudapps.digital/#technical-user-documentation-for-registers"
 
-    .column-one-third
+      %details{:role => "group"}
+        %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
+          %span.summary What are registers?
+        #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
+          %p Registers are lists of information, each register is the most reliable list of its kind.
+          %p
+            = link_to "Using registers", "https://registers.cloudapps.digital/using-registers"
+            %br
+            = link_to "Technical documentation", "https://registers-docs.cloudapps.digital/#technical-user-documentation-for-registers"
+
+    .column-one-third.about
+      %h2.heading-small Managed by
       %div{class: "govuk-organisation-logo"}
         %span.logo-container.logo-with-crest.crest-single-identity
           %span
             Ministry
             %br
             of Justice
+      %h2.heading-small Learn more
+      %ul
+        %li
+          = link_to "Update history", "#main"
+        %li
+          = link_to "Technical documentation", "#main"
+        %li
+          = link_to "Contact the team", "#main"
+
 
   .search-wrapper
     .grid-row
-      .column-one-half
-        = link_to "Combine with another list", combine_path
-      .column-one-half
-        = form_tag prisons_path, method: 'get', id: "search", class: "site-search" do
-          .content
-            = text_field_tag :search, params[:search], title: "Search", type: "search", id: "site-search-text", class: "js-search-focus", placeholder: "Search prisons"
-            = submit_tag "Search", class: 'submit'
+      .column-full
+        .form-group
+          %label Search for a prison
+          = form_tag prisons_path, method: 'get', id: "search", class: "site-search" do
+            .content
+              = text_field_tag :search, params[:search], title: "Search", type: "search", id: "site-search-text", class: "js-search-focus"
+        .form-group
+          %label.form-label{:for => "select-box"} Filter by
+          %select#select-box.form-control{:name => "select-box"}
+            %option Currently active
+            %option Expired
+            %option All
+    .grid-row
+      .column-full.search-results
+        %h2.heading-medium 151 prisons
+        %details{:role => "group"}
+          %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
+            %span.summary Download this data
+          #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
+            %p Download as:
+            %ul
+              %li= link_to "TSV", "#"
+              %li= link_to "CSV", "#"
+              %li= link_to "Spreadsheet", "#"
+            %p View as:
+            %ul
+              %li= link_to "JSON", "#"
+              %li= link_to "YAML", "#"
+              %li= link_to "TTL", "#"
+        %details{:role => "group"}
+          %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
+            %span.summary What are the table headers?
+          #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
+            %dl
+              %dt Prison:
+              %dd A part of the Prison Estate in England and Wales, including public and contracted prisons, and NOMS Immigration Removal Centres
+              %dt Name:
+              %dd The commonly-used name of a record.
+              %dt Operator:
+              %dd An entity performing an operational role.
+              %dt Address:
+              %dd An address in the UK
+              %dt Change-date:
+              %dd A character (either 1 or n) that explains if a field in a register can contain multiple values.
+              %dt Start-date:
+              %dd The date a record first became relevant to a register.
+              %dt End-date:
+              %dd The date a record stopped being applicable.
 
   .grid-row
     .column-one-whole
       - if @prisons.present?
         .table-wrapper
           %table
-            %col{width: "25%"}
             %col{width: "10%"}
+            %col{width: "25%"}
             %col{width: "12.5%"}
             %col{width: "12.5%"}
             %col{width: "20%"}
             %col{width: "20%"}
             %thead
               %tr
-                %th= sort_link "name", "Prison name"
                 %th= sort_link "code", "Code"
+                %th= sort_link "name", "Prison name"
+                %th= sort_link "organisation", "Operator"
+                %th= sort_link "address", "Address"
                 %th= sort_link "opened", "Opened"
                 %th= sort_link "closed", "Closed"
-                %th
-                %th
+
             %tbody
               - @prisons.each do |prison|
                 %tr
-                  %td= prison.name
                   %td= prison.code
+                  %td= prison.name
+                  %td= prison.organisation.present? ? prison.organisation : "<span class='unknown'>No data found</span>".html_safe
+                  %td= prison.address.present? ? prison.address : "<span class='unknown'>No data found</span>".html_safe
                   %td= prison.opened.present? ? prison.opened.strftime("%d/%m/%Y") : "<span class='unknown'>No data found</span>".html_safe
                   %td= prison.closed.present? ? prison.closed.strftime("%d/%m/%Y") : "<span class='unknown'>No data found</span>".html_safe
-                  %td
-                  %td
       - else
         %h4 Sorry, no prisons found for #{params[:search]}

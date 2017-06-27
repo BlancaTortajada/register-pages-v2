@@ -17,6 +17,12 @@ class PrisonsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def entries
+  end
+
   private
 
   def sortable_columns

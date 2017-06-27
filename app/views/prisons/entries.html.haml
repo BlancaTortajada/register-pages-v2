@@ -1,0 +1,135 @@
+- @page_title = "Home"
+- @page_description = ""
+
+.breadcrumbs{"data-module" => "track-click"}
+  %ol
+    %li
+      = link_to "Service Toolkit", "https://www.gov.uk/service-toolkit", target: :blank
+    %li
+      = link_to "Registers", root_path
+    %li
+      = link_to "Prison register", root_path
+    %li Update history
+
+.container#main
+  .grid-row
+    .column-two-thirds
+      %h1.heading-large Update history
+      .form-group
+        %label Search for a prison
+        = form_tag prisons_path, method: 'get', id: "search", class: "site-search" do
+          .content
+            = text_field_tag :search, params[:search], title: "Search", type: "search", id: "site-search-text", class: "js-search-focus"
+      .update
+        .pointer
+        %span 15 May 2017
+        %h2.heading-medium HMP Wellingborough
+        .table-wrapper
+          %table
+            %col{width: "10%"}
+            %col{width: "25%"}
+            %col{width: "12.5%"}
+            %thead
+              %tr
+                %th Field
+                %th Old value
+                %th New value
+                %tr
+                  %td Name
+                  %td HP Wellingborough
+                  %td HMP Wellingborough
+                %tr
+                  %td Operator
+                  %td 10023681392
+                  %td 10023681395
+      .update
+        .pointer
+        %span 15 May 2017
+        %h2.heading-medium HMP Wellingborough
+        .table-wrapper
+          %table
+            %col{width: "10%"}
+            %col{width: "25%"}
+            %col{width: "12.5%"}
+            %thead
+              %tr
+                %th Field
+                %th Old value
+                %th New value
+                %tr
+                  %td Name
+                  %td HP Wellingborough
+                  %td HMP Wellingborough
+                %tr
+                  %td Operator
+                  %td 10023681392
+                  %td 10023681395
+      .update
+        .pointer
+        %span 15 May 2017
+        %h2.heading-medium HMP Wellingborough
+        .table-wrapper
+          %table
+            %col{width: "10%"}
+            %col{width: "25%"}
+            %col{width: "12.5%"}
+            %thead
+              %tr
+                %th Field
+                %th Old value
+                %th New value
+                %tr
+                  %td Name
+                  %td HP Wellingborough
+                  %td HMP Wellingborough
+                %tr
+                  %td Operator
+                  %td 10023681392
+                  %td 10023681395
+      .update
+        .pointer
+        %span 15 May 2017
+        %h2.heading-medium HMP Wellingborough
+        .table-wrapper
+          %table
+            %col{width: "10%"}
+            %col{width: "25%"}
+            %col{width: "12.5%"}
+            %thead
+              %tr
+                %th Field
+                %th Old value
+                %th New value
+                %tr
+                  %td Name
+                  %td HP Wellingborough
+                  %td HMP Wellingborough
+                %tr
+                  %td Operator
+                  %td 10023681392
+                  %td 10023681395
+      .update
+        .pointer
+        %span 15 May 2017
+        %h2.heading-medium HMP Wellingborough
+        .table-wrapper
+          %table
+            %col{width: "10%"}
+            %col{width: "25%"}
+            %col{width: "12.5%"}
+            %thead
+              %tr
+                %th Field
+                %th Old value
+                %th New value
+                %tr
+                  %td Name
+                  %td HP Wellingborough
+                  %td HMP Wellingborough
+                %tr
+                  %td Operator
+                  %td 10023681392
+                  %td 10023681395
+
+
+
