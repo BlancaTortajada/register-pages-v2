@@ -313,9 +313,13 @@ dl {
   margin-bottom: 5px;
 }
 
-.update {
-  padding: 20px 0 40px 0;
+.timeline {
+  margin-top: 40px;
+}
+
+.update-container {
   border-left: 10px solid $grey-3;
+  padding: 20px 0 40px 0;
   padding-left: 40px;
   position: relative;
 
@@ -336,11 +340,22 @@ dl {
     content: "";
     background: $grey-3;
     position: absolute;
-    top: 25px;
+    top: 28px;
     left: 0;
   }
   &:first-child {
-    padding: 0 0 40px 0;
+    padding-top: 0;
+    .pointer {
+      top: 5px;
+      left: -40px;
+    }
+    .update {
+      position: relative;
+      top: -5px;
+    }
+  }
+  &:last-child {
+    padding-bottom: 0;
   }
 }
 
