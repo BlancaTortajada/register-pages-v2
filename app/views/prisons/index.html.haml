@@ -95,16 +95,17 @@
           %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
             %span.summary Download this data
           #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
-            %p Download as:
-            %ul
-              %li= link_to "TSV", "#"
-              %li= link_to "CSV", "#"
-              %li= link_to "Spreadsheet", "#"
-            %p View as:
-            %ul
-              %li= link_to "JSON", "#"
-              %li= link_to "YAML", "#"
-              %li= link_to "TTL", "#"
+            .download-options
+              %p Download as:
+              %ul
+                %li= link_to "TSV", "#"
+                %li= link_to "CSV", "#"
+                %li= link_to "Spreadsheet", "#"
+              %p View as:
+              %ul
+                %li= link_to "JSON", "#"
+                %li= link_to "YAML", "#"
+                %li= link_to "TTL", "#"
         %details{:role => "group"}
           %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
             %span.summary What are the table headers?
