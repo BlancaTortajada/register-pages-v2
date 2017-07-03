@@ -36,6 +36,8 @@
           %p
             = link_to "Using registers", "https://registers.cloudapps.digital/using-registers"
             %br
+            = link_to "Other available registers", "https://registers.cloudapps.digital/registers"
+            %br
             = link_to "Technical documentation", "https://registers-docs.cloudapps.digital/#technical-user-documentation-for-registers"
 
       %details{:role => "group"}
@@ -48,6 +50,8 @@
 
           %p
             = link_to "Using registers", "https://registers.cloudapps.digital/using-registers"
+            %br
+            = link_to "Other available registers", "https://registers.cloudapps.digital/registers"
             %br
             = link_to "Technical documentation", "https://registers-docs.cloudapps.digital/#technical-user-documentation-for-registers"
 
@@ -152,3 +156,6 @@
                   %td= prison.closed.present? ? prison.closed.strftime("%d/%m/%Y") : "<span class='unknown'>No data found</span>".html_safe
       - else
         %h4 Sorry, no prisons found for #{params[:search]}
+      %p.load-records
+        = link_to "Load more records", "https://registers.cloudapps.digital/using-registers"
+
