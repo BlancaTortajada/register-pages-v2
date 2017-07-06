@@ -89,7 +89,7 @@
             .content
               = text_field_tag :search, params[:search], title: "Search", type: "search", id: "site-search-text", class: "js-search-focus"
     .grid-row
-      .column-full.search-results
+      .column-two-thirds.search-results
         %h2.heading-large 151 prisons
         %details{:role => "group"}
           %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
@@ -127,8 +127,9 @@
               %dd The date a record stopped being applicable.
 
   .grid-row
-    .column-one-whole
+    .column-one-whole.scroll-wrapper
       - if @prisons.present?
+        %img.scroll-right{src: image_path("arrow_right.svg")}
         .table-wrapper
           %table
             %col{width: "10%"}
@@ -145,6 +146,9 @@
                 %th= sort_link "address", "Address"
                 %th= sort_link "opened", "Opened"
                 %th= sort_link "closed", "Closed"
+                %th Extra column
+                %th Extra column
+                %th Extra column
 
             %tbody
               - @prisons.each do |prison|
@@ -155,8 +159,13 @@
                   %td= prison.address.present? ? prison.address : "<span class='unknown'>No data found</span>".html_safe
                   %td= prison.opened.present? ? prison.opened.strftime("%d/%m/%Y") : "<span class='unknown'>No data found</span>".html_safe
                   %td= prison.closed.present? ? prison.closed.strftime("%d/%m/%Y") : "<span class='unknown'>No data found</span>".html_safe
+                  %td Extra cell
+                  %td Extra cell
+                  %td Extra cell
+
+
       - else
         %h4 Sorry, no prisons found for #{params[:search]}
       %p.load-records
-        = link_to "Load more records", ""
+        = link_to "Load more records", "https://registers.cloudapps.digital/using-registers"
 

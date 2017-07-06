@@ -72,7 +72,28 @@ a:visited {
   color: $govuk-blue;
 }
 
+.scroll-wrapper {
+  position: relative;
+}
+
+.table-wrapper {
+  overflow-x: scroll;
+  border-right: 30px solid $grey-3;
+}
+
+.scroll-right {
+  display: block;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  width: 12px;
+}
+
 table {
+
+  th, td {
+    min-width: 100px;
+  }
   th {
     font-size: 16px;
     font-weight: normal;
@@ -82,9 +103,14 @@ table {
   td {
     font-size: 16px;
     padding: 15px 40px 15px 0;
+    vertical-align: top;
 
     .unknown {
       color: $grey-1;
+    }
+
+    &:last-child {
+      padding-right: 0;
     }
   }
 }
