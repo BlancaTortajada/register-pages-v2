@@ -32,13 +32,14 @@
           %span.summary Use this list to build your service
         #details-content-0.panel.panel-border-narrow{"aria-hidden" => "true"}
           %p This list is a register. Using registers to build your service means you and your service users will only ever work with one reliable and current source of data.
+          %p Each register has an open API you can use to access the data without any authentication. There's more information about using the register APIs in the <a href="https://registers-docs.cloudapps.digital/#api-documentation-for-registers">API documentation</a>.
           
           %p
             = link_to "Using registers", "https://registers.cloudapps.digital/using-registers"
             %br
             = link_to "Other available registers", "https://registers.cloudapps.digital/registers"
             %br
-            = link_to "Technical documentation", "https://registers-docs.cloudapps.digital/#technical-user-documentation-for-registers"
+            = link_to "API documentation", "https://registers-docs.cloudapps.digital/#api-documentation-for-registers"
 
       %details{:role => "group"}
         %summary{"aria-controls" => "details-content-0", "aria-expanded" => "false", :role => "button"}
@@ -53,7 +54,7 @@
             %br
             = link_to "Other available registers", "https://registers.cloudapps.digital/registers"
             %br
-            = link_to "Technical documentation", "https://registers-docs.cloudapps.digital/#technical-user-documentation-for-registers"
+            = link_to "API documentation", "https://registers-docs.cloudapps.digital/#api-documentation-for-registers"
 
     .column-one-third.about
       %h2.heading-small Managed by
@@ -68,7 +69,7 @@
         %li
           = link_to "Update history", "#main"
         %li
-          = link_to "Technical documentation", "#main"
+          = link_to "API documentation", "https://registers-docs.cloudapps.digital/#api-documentation-for-registers"
         %li
           = link_to "Create a register", "#main"
         %li
@@ -130,7 +131,7 @@
     .column-one-whole.scroll-wrapper
       - if @prisons.present?
         %img.scroll-right{src: image_path("arrow_right.svg")}
-        .table-wrapper
+        .table-wrapper#records
           %table
             %col{width: "10%"}
             %col{width: "25%"}

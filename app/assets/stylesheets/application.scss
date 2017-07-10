@@ -78,7 +78,9 @@ a:visited {
 
 .table-wrapper {
   overflow-x: scroll;
-  border-right: 30px solid $grey-3;
+  &#records {
+    border-right: 30px solid $grey-3;
+  }
 }
 
 .scroll-right {
