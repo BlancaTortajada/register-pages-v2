@@ -38,6 +38,14 @@ h1 {
   }
 }
 
+ul.bullet-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  li {
+    margin-bottom: 5px;
+  }
+}
+
 .no-bullets {
   margin-left: 0;
 
@@ -333,7 +341,6 @@ dl {
 
 .phase {
   margin-top: 30px;
-  display: none;
 }
 
 .phase-tag {
